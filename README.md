@@ -1,1 +1,1 @@
-# SpamEmailPredictor
+# SpamTextPredictor
