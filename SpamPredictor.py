@@ -48,10 +48,6 @@ df = pd.read_csv('SpamTexts.csv')
 X_train, X_test, y_train, y_test = train_test_split(df['Text'],df['Value'], 
                                                     test_size=0.5,
                                                     random_state=1)
-X_train = df.loc[:2787, 'Text'].values
-y_train = df.loc[:2787, 'Value'].values
-X_test = df.loc[2787:, 'Text'].values
-y_test = df.loc[2787:, 'Value'].values
 
 # Apply grid search to identify optimal parameters for LR
 tfidf = TfidfVectorizer(strip_accents=None, lowercase=False, preprocessor=None)
