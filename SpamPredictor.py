@@ -26,6 +26,7 @@ from nltk.corpus import stopwords
 
 import pandas as pd
 
+from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
@@ -44,6 +45,9 @@ stop = stopwords.words('english')
 df = pd.read_csv('SpamTexts.csv')
 
 # Divide df into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(df['Text'],df['Value'], 
+                                                    test_size=0.5,
+                                                    random_state=1)
 X_train = df.loc[:2787, 'Text'].values
 y_train = df.loc[:2787, 'Value'].values
 X_test = df.loc[2787:, 'Text'].values
